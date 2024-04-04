@@ -1,0 +1,2 @@
+Task,Mean rmse,Standard deviation rmse,Fold 0 rmse,Mean r2,Standard deviation r2,Fold 0 r2,Mean mae,Standard deviation mae,Fold 0 mae
+qed,0.02912941408671291,0.0,0.02912941408671291,0.9558677316259865,0.0,0.9558677316259865,0.020039129990512734,0.0,0.020039129990512734

@@ -1,0 +1,140 @@
+Trainer will use only 1 of 10 GPUs because it is running inside an interactive / notebook environment. You may try to set `Trainer(devices=10)` but please note that multi-GPU inside interactive / notebook environments is considered experimental and unstable. Your mileage may vary.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA RTX A6000') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:653: Checkpoint directory /data/yulai/projects/mol_prop/wandb/run-20240403_061240-5cn0pwac/files exists and is not empty.
+Restoring states from the checkpoint path at ./property_model/
+Traceback (most recent call last):
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/IPython/core/interactiveshell.py", line 3526, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File "/tmp/ipykernel_3486962/1723037572.py", line 25, in <module>
+    trainer.fit(
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 544, in fit
+    call._call_and_handle_interrupt(
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/pytorch_lightning/trainer/call.py", line 44, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 580, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 956, in _run
+    self._checkpoint_connector._restore_modules_and_callbacks(ckpt_path)
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/pytorch_lightning/trainer/connectors/checkpoint_connector.py", line 397, in _restore_modules_and_callbacks
+    self.resume_start(checkpoint_path)
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/pytorch_lightning/trainer/connectors/checkpoint_connector.py", line 79, in resume_start
+    loaded_checkpoint = self.trainer.strategy.load_checkpoint(checkpoint_path)
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/pytorch_lightning/strategies/strategy.py", line 368, in load_checkpoint
+    return self.checkpoint_io.load_checkpoint(checkpoint_path)
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/lightning_fabric/plugins/io/torch_io.py", line 83, in load_checkpoint
+    return pl_load(path, map_location=map_location)
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/lightning_fabric/utilities/cloud_io.py", line 56, in _load
+    with fs.open(path_or_url, "rb") as f:
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/fsspec/spec.py", line 1295, in open
+    f = self._open(
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/fsspec/implementations/local.py", line 180, in _open
+    return LocalFileOpener(path, mode, fs=self, **kwargs)
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/fsspec/implementations/local.py", line 302, in __init__
+    self._open()
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/fsspec/implementations/local.py", line 307, in _open
+    self.f = open(self.path, mode=self.mode)
+IsADirectoryError: [Errno 21] Is a directory: '/data/yulai/projects/mol_prop/property_model'
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/IPython/core/interactiveshell.py", line 2120, in showtraceback
+    stb = self.InteractiveTB.structured_traceback(
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/IPython/core/ultratb.py", line 1435, in structured_traceback
+    return FormattedTB.structured_traceback(
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/IPython/core/ultratb.py", line 1326, in structured_traceback
+    return VerboseTB.structured_traceback(
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/IPython/core/ultratb.py", line 1173, in structured_traceback
+    formatted_exception = self.format_exception_as_a_whole(etype, evalue, etb, number_of_lines_of_context,
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/IPython/core/ultratb.py", line 1063, in format_exception_as_a_whole
+    self.get_records(etb, number_of_lines_of_context, tb_offset) if etb else []
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/IPython/core/ultratb.py", line 1131, in get_records
+    mod = inspect.getmodule(cf.tb_frame)
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/inspect.py", line 861, in getmodule
+    file = getabsfile(object, _filename)
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/inspect.py", line 844, in getabsfile
+    _filename = getsourcefile(object) or getfile(object)
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/inspect.py", line 829, in getsourcefile
+    module = getmodule(object, filename)
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/inspect.py", line 869, in getmodule
+    if ismodule(module) and hasattr(module, '__file__'):
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/wandb/util.py", line 212, in __getattribute__
+    state.load()
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/wandb/util.py", line 205, in load
+    self.module.__spec__.loader.exec_module(self.module)
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/httpx/__init__.py", line 2, in <module>
+    from ._api import delete, get, head, options, patch, post, put, request, stream
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/httpx/_api.py", line 6, in <module>
+    from ._client import Client
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/httpx/_client.py", line 12, in <module>
+    from ._auth import Auth, BasicAuth, FunctionAuth
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/httpx/_auth.py", line 12, in <module>
+    from ._models import Cookies, Request, Response
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/httpx/_models.py", line 11, in <module>
+    from ._content import ByteStream, UnattachedStream, encode_request, encode_response
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/httpx/_content.py", line 17, in <module>
+    from ._multipart import MultipartStream
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/httpx/_multipart.py", line 16, in <module>
+    from ._utils import (
+  File "/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/httpx/_utils.py", line 14, in <module>
+    import sniffio
+ModuleNotFoundError: No module named 'sniffio'
+Unexpected exception formatting exception. Falling back to standard exception
+/tmp/ipykernel_3486962/3380730969.py:64: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  self.y = torch.tensor(y, dtype=torch.float32)
+/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/torch_geometric/deprecation.py:26: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/torchmetrics/utilities/prints.py:43: UserWarning: Metric `SpearmanCorrcoef` will save all targets and predictions in the buffer. For large datasets, this may lead to large memory footprint.
+  warnings.warn(*args, **kwargs)  # noqa: B028
+/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/pytorch_lightning/loggers/wandb.py:391: There is a wandb run already in progress and newly created instances of `WandbLogger` will reuse this run. If this is not desired, call `wandb.finish()` before instantiating `WandbLogger`.
+Trainer will use only 1 of 10 GPUs because it is running inside an interactive / notebook environment. You may try to set `Trainer(devices=10)` but please note that multi-GPU inside interactive / notebook environments is considered experimental and unstable. Your mileage may vary.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:653: Checkpoint directory /data/yulai/projects/mol_prop/wandb/run-20240403_061240-5cn0pwac/files exists and is not empty.
+Restoring states from the checkpoint path at ./property_model/
+/tmp/ipykernel_3486962/3380730969.py:64: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  self.y = torch.tensor(y, dtype=torch.float32)
+/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/torch_geometric/deprecation.py:26: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/torchmetrics/utilities/prints.py:43: UserWarning: Metric `SpearmanCorrcoef` will save all targets and predictions in the buffer. For large datasets, this may lead to large memory footprint.
+  warnings.warn(*args, **kwargs)  # noqa: B028
+/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/pytorch_lightning/loggers/wandb.py:391: There is a wandb run already in progress and newly created instances of `WandbLogger` will reuse this run. If this is not desired, call `wandb.finish()` before instantiating `WandbLogger`.
+Trainer will use only 1 of 10 GPUs because it is running inside an interactive / notebook environment. You may try to set `Trainer(devices=10)` but please note that multi-GPU inside interactive / notebook environments is considered experimental and unstable. Your mileage may vary.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:653: Checkpoint directory /data/yulai/projects/mol_prop/wandb/run-20240403_061240-5cn0pwac/files exists and is not empty.
+Restoring states from the checkpoint path at ./property_model/epoch=24-step=2500.ckpt
+/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:361: The dirpath has changed from '/data/yulai/projects/mol_prop/property_model' to '/data/yulai/projects/mol_prop/wandb/run-20240403_061240-5cn0pwac/files', therefore `best_model_score`, `kth_best_model_path`, `kth_value`, `last_model_path` and `best_k_models` won't be reloaded. Only `best_model_path` will be reloaded.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1,2,3,4,5,6,7,8,9]
+  | Name          | Type          | Params
+------------------------------------------------
+0 | encoder       | GNNMolEncoder | 276 K
+1 | loss_function | MSELoss       | 0
+------------------------------------------------
+276 K     Trainable params
+0         Non-trainable params
+276 K     Total params
+1.107     Total estimated model params size (MB)
+Restored all states from the checkpoint at ./property_model/epoch=24-step=2500.ckpt
+/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:492: Your `val_dataloader`'s sampler has shuffling enabled, it is strongly recommended that you turn shuffling off for val/test dataloaders.
+Epoch 25 done.
+Epoch 26 done.
+Epoch 27 done.
+Epoch 28 done.
+Epoch 29 done.
+Epoch 30 done.
+Epoch 31 done.
+Epoch 32 done.
+Epoch 33 done.
+Epoch 34 done.
+Epoch 35 done.
+Epoch 36 done.
+Epoch 37 done.

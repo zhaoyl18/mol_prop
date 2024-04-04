@@ -1,0 +1,23 @@
+/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:653: Checkpoint directory /data/yulai/projects/mol_prop/property_model/with_empty_edge/1feat exists and is not empty.
+Restoring states from the checkpoint path at property_model/with_empty_edge/1feat/epoch=16-step=1700.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [4,5]
+  | Name          | Type          | Params
+------------------------------------------------
+0 | encoder       | GNNMolEncoder | 276 K
+1 | loss_function | MSELoss       | 0
+------------------------------------------------
+276 K     Trainable params
+0         Non-trainable params
+276 K     Total params
+1.106     Total estimated model params size (MB)
+Restored all states from the checkpoint at property_model/with_empty_edge/1feat/epoch=16-step=1700.ckpt
+/data/yulai/anaconda3/envs/mol/lib/python3.10/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:492: Your `val_dataloader`'s sampler has shuffling enabled, it is strongly recommended that you turn shuffling off for val/test dataloaders.
+Epoch 17 done.
+Epoch 18 done.
+Epoch 19 done.
+Epoch 20 done.
+Epoch 21 done.
+Epoch 22 done.
+Epoch 23 done.
+Epoch 24 done.
+Epoch 25 done.
